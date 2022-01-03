@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "698794542706",
+    "project_id": "parking-boy-for-administrator",
+    "storage_bucket": "parking-boy-for-administrator.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:698794542706:android:a76d31e38ef171a81fe4eb",
+        "android_client_info": {
+          "package_name": "com.example.parkingboyforadminstrator"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "698794542706-ku45phq8dgv44k95t5r4pt2uu49khq5k.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDcws1-23oc8DWiwQgL58GFm5kzIqsOwQQ"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "698794542706-ku45phq8dgv44k95t5r4pt2uu49khq5k.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
