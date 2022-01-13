@@ -1,5 +1,7 @@
 package com.example.parkingboyforadminstrator;
 
+import static android.util.Patterns.EMAIL_ADDRESS;
+
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -15,11 +17,14 @@ import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 
+import java.util.regex.Pattern;
+
 public class Register extends AppCompatActivity {
     Button loginHere,regUserBtn;
     EditText regFullName,regEmail,regPassword, regConfPass,regMobile;
     FirebaseAuth fAuth;
-
+    private static final Pattern PASSWORD_PATTERN =
+            Pattern.compile("^" + "(?=.*[0-9])" + "(?=.*[a-z])" + "(?=.*[A-Z])" + "(?=.*[a-zA-Z])" + "(?=.*[@#$%^&+=])" + "(?=\\S+$)" + ".{8,}" + "$");
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -63,9 +68,17 @@ public class Register extends AppCompatActivity {
                     regEmail.setError("Email address is required!");
                     return;
                 }
+                else if(!EMAIL_ADDRESS.matcher(eMail).matches()) {
+                    regEmail.setError("A valid email address is required!");
+                    return;
+                }
 
                 if(passWord.isEmpty()) {
                     regPassword.setError("Password is required!");
+                    return;
+                }
+                else if(!PASSWORD_PATTERN.matcher(passWord).matches()) {
+                    regPassword.setError("Password too weak!");
                     return;
                 }
 
@@ -76,6 +89,7 @@ public class Register extends AppCompatActivity {
 
                 if(!passWord.equals(confPass)) {
                     regPassword.setError("Passwords do not match!");
+                    return;
                 }
 
                 if(mobileNum.isEmpty()) {
